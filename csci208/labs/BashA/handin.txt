@@ -1,0 +1,86 @@
+Problem 1: Bash Lab, csci208, 2016, Andre Amirsaleh
+
+Problem 2: /home/accounts/student/a/aa026/csci208/labs/BashA
+[2]+  Done                    gedit handin.txt
+
+Problem 3:
+	Part 1: student
+	Part 2: created
+
+Problem 4: labs
+
+Problem 5:
+	Part 1: cp handin.txt handin2.txt
+	Part 2: cp csci208/labs/BashA/handin.txt handin3.txt
+	Part 3: cp csci208/labs/BashA/handin.txt ./handin4.txt
+	Part 4: cp csci208/labs/BashA/handin.txt ~/handin5.txt
+	Part 5: cp labs/BashA/handin.txt ../handin6.txt
+
+Problem 6:
+	Part 1: rm handin3.txt
+	Part 2: rm -rf labs
+
+Problem 7:
+	Part 1: mv handin4.txt handin7.txt
+	Part 2: mv handin5.txt ~/csci208/handin8.txt
+
+Problem 8:
+	Part 1: 
+		   91  make
+		   92  vim vim Makefile 
+		   93  vim Makefile 
+		   94  git status
+		   95  cd ../Lab03/
+		   96  ls
+		   97  git add prelab.txt
+		   98  git commit -m "prelab 03"
+		   99  git pull origin master
+		  100  git push
+		  101  cd ~/csci205/src
+		  102  javac lab04/ArrayChallenge.java
+		  .....
+	Part 2: !c
+
+Problem 9:
+	Part 1: rwx--x--x
+	Part 2: rw-------
+	Part 3: rwx--x--x
+	Part 4: -wxrwx--x
+
+Problem 10:
+	Part 1: chmod u-rw Alpha.txt
+		chmod g+r Alpha.txt
+		chmod o+r Alpha.txt
+	Part 2: No, group permissions do not affect the user's permissions
+	Part 3: no
+
+Problem 11: Difference # | Difference type
+	    -------------|----------------
+	     1		 | change
+	     2	 	 | add
+	     3		 | change
+	     4		 | change
+	     5		 | change
+
+Problem 12: diff example1.txt example2.txt > diffs.txt
+
+Problem 13: cat example1.txt example2.txt > more.txt
+
+Problem 14: 
+	Part 1: alias pikachu='a2ps --sides=tumble'
+	Part 2: unlink
+	Part 3: /usr/bin/gcc
+
+Problem 15: tar -cjvf csci204.tbz csci204
+	    rm -rf csci204
+	    tar -cjvf csci205.tbz csci205
+	    rm -rf csci205
+	    tar -cjvf csci206.tbz csci206
+	    rm -rf csci206
+
+
+
+
+
+
+

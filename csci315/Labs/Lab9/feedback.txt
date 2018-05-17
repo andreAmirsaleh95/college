@@ -1,0 +1,18 @@
+|====================|
+| Lab 9 - 100 points |
+|====================|
+
+Problem 1 - 30 Points
+
+Problem 2 - 15 Points
+
+Problem 3 - 15 Points
+
+Problem 4 - 15 Points
+
+Problem 5 - 25 Points
+
+-8: Problem 3 does not seem to fully work.
+-15: Double enter did not seem to work.
+
+Total: 77/100

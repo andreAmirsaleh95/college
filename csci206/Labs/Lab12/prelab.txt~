@@ -1,0 +1,57 @@
+mini_bomb2:
+Call disassemble for the check_pin function. We find that check_pin calls
+negu a0, a0 and then calls secret_check, so we disassemble secret_check. We see
+that secret_check calls addiu v0, a0, 9876, and then returns. However, in the
+branch delay spot, secret_check also calls sltiu v0, v0, 1 so that v0 is set to
+1 when v0 is 0. So, by this point in the program, v0 is the negated pin + 9876,
+and the bomb is defused when v0 is 0. Thus, the pin must be 9876 in order for
+the bomb to defuse.
+
+mini_bomb3:
+First, in GDB, we disassemble the check_pin function and see the following:
+
+   0x004007b0 <+0>:	andi	v1,a0,0x55
+   0x004007b4 <+4>:	li	v0,65
+   0x004007b8 <+8>:	bne	v1,v0,0x4007c8 <check_pin+24>
+   0x004007bc <+12>:	xori	a0,a0,0x41
+   0x004007c0 <+16>:	jr	ra
+   0x004007c4 <+20>:	sltu	v0,zero,a0
+   0x004007c8 <+24>:	jr	ra
+   0x004007cc <+28>:	move	v0,zero
+
+The above MIPS code translates to the following psuedocode:
+
+pin = a0
+v1 = pin AND 0x55
+v0 = 65
+if ( v0 != v1 ) { return 0 }
+else {
+	pin = pin XOR 0x41
+	if ( pin == 0 ) { return 1 }
+}
+
+So, first of all, we want v1 = pin AND 0x55 = 65.
+
+0x55 (hex)   = 01010101 (binary)
+pin          = -------- (binary) where the -'s are either 0 or 1
+			 = -1-0-0-1 (binary) where the -'s are either 0 or 1
+pin AND 0x55 = 01000001 (binary) = 65 (decimal) <-- known before previous line
+
+Now, assuming pin is one of the numbers in the set of (binary) numbers
+described above so that check_pin reaches line +12, we want pin XOR 0x41 > 0.
+
+0x41 (hex)    = 01000001 (binary)
+pin           = -1-0-0-1 (binary) where the -'s are either 0 or 1
+			  = 11000001 (binary) = 193 (decimal)
+pin XOR 0x41 != 00000000 <-- known before previous line
+
+So the conditions are that:
+0x55 = 0101 0101
+0x41 = 0100 0001
+argument (a) AND 0x55 = 0x41 -> X1X0 X0X1
+a XOR 0x41 is greater than zero -> 11X0 X0X1 
+1100 0001 = 0x91 =  145 would work
+
+
+
+

@@ -1,0 +1,21 @@
+Name: Andre Amirsaleh
+Date: 9/25/16
+Course: CSCI-315L (1:00PM section)
+Professor: Felipe
+
+(4.1) Just because the fork() function was not called, does not mean that two
+	  processes are not running!
+
+(4.2) Socket functionality is provided by an external library because we had to
+	  #include <sys/socket.h>
+
+(4.3) Sockets are better for servers; whereas, pipes are better for local
+	  inter-process communication.
+	  Pipes : Monolithic Systems :: Sockets : Layered Systems (?)
+
+(4.4) gethostbyname(3) allows us to validate the user-entered host-name by
+	  returning NULL for any given invalid hostname. If invalid, terminate the
+	  program.
+
+(4.5) getnameinfo(3) should be used instead because it is protocol-independent,
+	  reentrant, and eliminates dependencies on different IP-Address standards.

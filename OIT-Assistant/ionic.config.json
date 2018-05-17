@@ -1,0 +1,8 @@
+{
+  "name": "OIT-Assistant",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

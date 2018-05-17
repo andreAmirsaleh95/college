@@ -1,0 +1,8 @@
+Problem 1: completed and works as expected
+Problem 2: completed and works as expected; return value is based on status, not errno
+Problem 3: completed and works as expected; can only handle 2 commands
+Problem 4: completed and works as expected; enter must be pressed twice regardless, ls will only be run if the enters are consecutive; if the enters are bisected by some other input then the function will return to ishell
+
+Problem 5: completed; added cd function that works as normal with the exception of that it does not return user to home directory when no arguments are provided, this proved problematic to implement given how the home directories are setup on these Linux machines; also added exit and help functions, the latter of which provides a list of the built-in functions
+
+Makefile compiles all included code properly. 

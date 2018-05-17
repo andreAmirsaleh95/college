@@ -1,0 +1,22 @@
+(1.1) code that corrupts the execution stack by writing past the end of an
+      array declared auto in a routine
+
+(1.2) C implementation and buffer overflow
+
+(1.3) Disassemble shows the machine code version of C code.
+
+(1.4) The generated machine code is dependent on the CPU (i.e. disassemble
+      will produce different machine code across different CPUs)
+
+(1.5) The call to function() messes with the buffer, resulting in buffer overflow.
+      The printf() function relies on the buffer and does not count on it being
+      messed with. In function(), if line 13 is:
+
+      ret = (int*)(buffer1 + 12);
+
+      rather than:
+
+      ret = (int*)(buffer1 + 24);
+      
+	  main prints 1. So, basically, main prints 1 instead of 0 due to the 24 in
+      line 13 in function().

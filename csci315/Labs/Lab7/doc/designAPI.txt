@@ -1,0 +1,15 @@
+Depending on the global POLICY variable, which was passed into the
+allocator_init function, the allocate function calls one of the following three
+functions:
+1. void *_allocate_bf( size_t size )
+2. void *_allocate_ff( size_t size )
+3. void *_allocate_wf( size_t size )
+
+My new definition of a dnode:
+struct dnode {
+	struct dnode *prev;
+	struct dnode *next;
+	void *data;
+	size_t size;
+	int location;
+};

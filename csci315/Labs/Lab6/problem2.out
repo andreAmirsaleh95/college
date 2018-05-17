@@ -1,0 +1,34 @@
+[aa026@brki167-lnx-5 Lab6]$ ./problem2
+Philosopher 0 is thinking.
+Philosopher 4 is thinking.
+Philosopher 1 is thinking.
+Philosopher 2 is thinking.
+Philosopher 3 is thinking.
+philosopher 0 is hungry.
+Philosopher 0 picking up (left) chopstick 0
+philosopher 2 is hungry.
+Philosopher 2 picking up (left) chopstick 2
+Philosopher 0 picking up (right) chopstick 1
+Philosopher 0 is starting to eat.
+philosopher 4 is hungry.
+Philosopher 4 picking up (left) chopstick 4
+Philosopher 0 is done eating.
+Philosopher 0 putting down (left) chopstick 0
+Philosopher 0 putting down (right) chopstick 1
+Philosopher 0 is thinking.
+philosopher 1 is hungry.
+Philosopher 1 picking up (left) chopstick 1
+Philosopher 2 picking up (right) chopstick 3
+Philosopher 2 is starting to eat.
+philosopher 0 is hungry.
+Philosopher 0 picking up (left) chopstick 0
+philosopher 3 is hungry.
+Philosopher 2 is done eating.
+Philosopher 2 putting down (left) chopstick 2
+Philosopher 2 putting down (right) chopstick 3
+Philosopher 2 is thinking.
+Philosopher 3 picking up (left) chopstick 3
+philosopher 2 is hungry.
+Philosopher 2 picking up (left) chopstick 2
+^C
+[aa026@brki167-lnx-5 Lab6]$ 

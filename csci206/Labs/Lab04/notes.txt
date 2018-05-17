@@ -1,0 +1,10 @@
+1. creat(2): Creates a new file.
+2. open(2): Returns a file descriptor (int) for a given pathname of a file.
+3. read(2): Given a file descriptor, read() returns the number of bytes in the file.
+4. write(2): Given a file descriptor, write() writes to a file.
+5. close(2): Closes a file descriptor so that it may be used again.
+6. fopen(3): The parameters are const char *path, const char *mode. fopen() opens a file named path (parameter) and associates a stream with it.
+7. fgets(3): The parameter is FILE *stream. fgets() reads the next character from stream and returns it as an unsigned char cast to an int (or EOF on end of file or error).
+8. fprintf(3): The parameters are FILE *stream, const char *format. fprintf() writes output to the given output stream.
+9. fseek(3): The parameters are FILE *stream, long offset, int whence. fseek() sets the file position indicator for the given stream.
+10. fclose(3): The parameters are FILE *fp. fclose() returns a 0 when succesful and EOF otherwise.

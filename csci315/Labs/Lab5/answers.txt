@@ -1,0 +1,3 @@
+3. rand(3) is not "thread-safe" because it uses a hidden state that changes on
+   every call. rand_r(3), on the other hand, is thread-safe because that
+   hidden state is made explicit, producing predictable unpredictable behavior.

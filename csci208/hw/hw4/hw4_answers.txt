@@ -1,0 +1,72 @@
+1. double a = 4;
+   check 4: int
+   check a: double
+   equiv int (from 4), double (from a) ==> NO
+   coerce int to double ==> YES
+   infer a: int
+
+2. int b = 9 + 4 * 6; // Warning: precedence makes this tricky!
+   check 4: int
+   check 6: int
+   check *: (int, int) -> int
+   equiv int (from 4), int (from first arg) ==> YES
+   equiv int (from 6), int (from second arg) ==> YES
+   infer (4 * 6): int
+   check 9: int
+   check (4 * 6): int
+   check +: (int, int) -> int
+   equiv int (from 9), int (from first arg) ==> YES
+   equiv int (from 2 * 6), int (from second arg) ==> YES
+   infer (9 + 2 * 6): int
+   check b: int
+   check (9 + 2 * 6): int
+   equiv int (from b), int (from 9 + 2 * 6) ==> YES
+   infer b: int
+
+3. 3 + 4.5 + “hi”
+   check 3: int
+   check 4.5: int
+   check +: (int, int) -> int
+   equiv int (from 3), int (from first arg) ==> YES
+   equiv double (from 4.5), int (from second arg) ==> NO
+   coerce double (from 4.5) to int (from 2nd arg) ==> NO
+   check +: (double, double) -> double
+   equiv int (from 3), double (from 1st arg) ==> NO
+   coerce int (from 3) to double (from 1st arg) ==> YES
+   equiv double (from 4.5), double (from 2nd arg) ==> YES
+   infer (3 + 4.5): double
+   check (3 + 4.5): double
+   check “hi”: string
+   check +: (int, int) -> int
+   equiv double (from 3 + 4.5), int (from 1st arg) ==> NO
+   coerce double (from 3 + 4.5) to int (from 1st arg) ==> NO
+   check +: (double, double) -> double
+   equiv double (from 3 + 4.5), double (from 1st arg) ==> YES
+   equiv String (from “hi”), double (from 2nd arg) ==> NO
+   coerce String (from “hi”) to double (from 2nd arg) ==> NO
+   check +: (String, String) -> String
+   equiv double (from 3 + 4.5), String (from 1st arg) ==> NO
+   coerce double (from 3 + 4.5) to String (from 1st arg) ==> NO
+   FAIL
+
+4. int x = 3.4;
+   check 3.4: double
+   check x: int
+   equiv double (from 3.4), int (from x) ==> NO
+   coerce double (from 3.4) to int (from x) ==> NO
+   FAIL
+
+5. Type checking is good for proof-checking code that relies on coercion
+
+6. Bjarne Stroustrup created and developed C++, so he is probably a valid source.
+
+7. The use of a static type system improves code quality by reducing the number of errors and moves checking to compile time (pg. 49).
+
+8. Elements in a linked list take a lot more memory than those of an array. Thus, adding elements to the middle of a linked-list
+   can take longer than adding elements to an array (pg. 50).
+
+9. No. The efficiency of a C++ linear algebra library would not automatically improve if rewritten in C just because its a “lower-level” language (pg. 53).
+
+10. Runtime error checking takes consumes memory and processor cycles (pg. 48).
+
+11. “Duck typing,” an advantage of dynamic typing, is the concept that values have types but objects do not — an object’s behavior is determined by the value it holds.

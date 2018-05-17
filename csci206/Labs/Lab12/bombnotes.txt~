@@ -1,0 +1,467 @@
+phase_1 pin:
+
+And they have no disregard for human life.
+
+phase_2 notes:
+
+Dump of assembler code for function read_six_numbers:
+   0x00401b04 <+0>:	addiu	sp,sp,-48
+   0x00401b08 <+4>:	sw	ra,44(sp)
+   0x00401b0c <+8>:	move	a3,a1
+   0x00401b10 <+12>:	addiu	v0,a1,8
+   0x00401b14 <+16>:	sw	v0,16(sp)
+   0x00401b18 <+20>:	addiu	v0,a1,12
+   0x00401b1c <+24>:	sw	v0,20(sp)
+   0x00401b20 <+28>:	addiu	v0,a1,16
+   0x00401b24 <+32>:	sw	v0,24(sp)
+   0x00401b28 <+36>:	addiu	v0,a1,20
+   0x00401b2c <+40>:	sw	v0,28(sp)
+   0x00401b30 <+44>:	lui	a1,0x40
+   0x00401b34 <+48>:	addiu	a1,a1,12220
+   0x00401b38 <+52>:	move	a2,a3
+   0x00401b3c <+56>:	addiu	a3,a3,4
+   0x00401b40 <+60>:	jal	0x400bb0 <__isoc99_sscanf@plt>
+   0x00401b44 <+64>:	move	at,at
+   0x00401b48 <+68>:	slti	v0,v0,6
+   0x00401b4c <+72>:	beqz	v0,0x401b5c <read_six_numbers+88>
+   0x00401b50 <+76>:	lw	ra,44(sp)
+   0x00401b54 <+80>:	jal	0x40192c <explode_bomb>
+   0x00401b58 <+84>:	move	at,at
+   0x00401b5c <+88>:	jr	ra
+   0x00401b60 <+92>:	addiu	sp,sp,48
+
+translated:
+
+a3 = a1;
+v0 = a1 + 8;
+v0 = a1 + 12;
+v0 = a1 + 16; // store at 24($sp)
+v0 = a1 + 20;
+// Each v0 is stored on the stack
+a1 += 12220; // unsigned
+a2 = a3; // = old value of a1
+a3 += 4; // unsigned
+// call to scanf here
+if ( v0 < 6 ) { RETURN }
+else { EXPLODE }
+
+potential phase_2 pin:
+
+2147444336
+
+----------------------------------
+Dump of assembler code for function phase_2:
+   0x00400f84 <+0>:	addiu	sp,sp,-64
+   0x00400f88 <+4>:	sw	ra,60(sp)
+   0x00400f8c <+8>:	sw	s2,56(sp)
+   0x00400f90 <+12>:	sw	s1,52(sp)
+   0x00400f94 <+16>:	sw	s0,48(sp)
+   0x00400f98 <+20>:	addiu	a1,sp,24
+   0x00400f9c <+24>:	jal	0x401b04 <read_six_numbers>
+   0x00400fa0 <+28>:	move	at,at
+   0x00400fa4 <+32>:	lw	v0,24(sp)
+   0x00400fa8 <+36>:	bgez	v0,0x400fb8 <phase_2+52>
+   0x00400fac <+40>:	addiu	s0,sp,28
+   0x00400fb0 <+44>:	jal	0x40192c <explode_bomb>
+   0x00400fb4 <+48>:	move	at,at
+   0x00400fb8 <+52>:	li	s1,1
+   0x00400fbc <+56>:	li	s2,6
+   0x00400fc0 <+60>:	lw	v0,-4(s0)
+   0x00400fc4 <+64>:	addu	v0,s1,v0
+   0x00400fc8 <+68>:	lw	v1,0(s0)
+   0x00400fcc <+72>:	beq	v1,v0,0x400fdc <phase_2+88>
+   0x00400fd0 <+76>:	move	at,at
+   0x00400fd4 <+80>:	jal	0x40192c <explode_bomb>
+   0x00400fd8 <+84>:	move	at,at
+   0x00400fdc <+88>:	addiu	s1,s1,1
+   0x00400fe0 <+92>:	bne	s1,s2,0x400fc0 <phase_2+60>
+   0x00400fe4 <+96>:	addiu	s0,s0,4
+   0x00400fe8 <+100>:	lw	ra,60(sp)
+   0x00400fec <+104>:	lw	s2,56(sp)
+   0x00400ff0 <+108>:	lw	s1,52(sp)
+   0x00400ff4 <+112>:	lw	s0,48(sp)
+   0x00400ff8 <+116>:	jr	ra
+   0x00400ffc <+120>:	addiu	sp,sp,64
+
+translated:
+
+// line 32:
+v0 = a1 + 16; // from read_six_numbers
+// v0 is the first number you entered
+
+// line 36:
+if ( v0 < 0 ) { EXPLODE }
+
+// line 52:
+s1 = 1;
+
+// line 56:
+s2 = 6;
+
+// line 60:
+v0 = MEM[sp - 4];
+
+line 64:
+v0 += 1 // unsigned
+
+// line 68:
+v1 = MEM[s0];
+// Could also be the first number you enter... damnit
+// is consistantly 6 on first iteration
+
+//line 72:
+if ( v1 != v0 ) { EXPLODE }
+
+// line 88:
+s1 += 1; // So, now, s1 = 2
+
+// line 92:
+if ( s1 != s2 ) { jump line 60 }
+
+phase_2 pin:
+
+1 2 4 7 11 16
+
+phase_3 notes:
+
+Dump of assembler code for function phase_3:
+   0x00401000 <+0>:	addiu	sp,sp,-40
+   0x00401004 <+4>:	sw	ra,36(sp)
+   0x00401008 <+8>:	lui	a1,0x40
+   0x0040100c <+12>:	addiu	a1,a1,12232
+   0x00401010 <+16>:	addiu	a2,sp,24
+   0x00401014 <+20>:	addiu	a3,sp,28
+   0x00401018 <+24>:	jal	0x400bb0 <__isoc99_sscanf@plt>
+   0x0040101c <+28>:	move	at,at
+   0x00401020 <+32>:	slti	v0,v0,2
+   0x00401024 <+36>:	beqz	v0,0x401038 <phase_3+56>
+   0x00401028 <+40>:	lw	v0,24(sp)
+   0x0040102c <+44>:	jal	0x40192c <explode_bomb>
+   0x00401030 <+48>:	move	at,at
+   0x00401034 <+52>:	lw	v0,24(sp)
+   0x00401038 <+56>:	sltiu	v0,v0,8
+   0x0040103c <+60>:	beqz	v0,0x4010bc <phase_3+188>
+   0x00401040 <+64>:	lw	v1,24(sp)
+   0x00401044 <+68>:	sll	v1,v1,0x2
+   0x00401048 <+72>:	lui	v0,0x40
+   0x0040104c <+76>:	addiu	v0,v0,11664
+   0x00401050 <+80>:	addu	v0,v0,v1
+   0x00401054 <+84>:	lw	v0,0(v0)
+---Type <return> to continue, or q <return> to quit---
+   0x00401058 <+88>:	jr	v0
+   0x0040105c <+92>:	move	at,at
+   0x00401060 <+96>:	j	0x40106c <phase_3+108>
+   0x00401064 <+100>:	move	v0,zero
+   0x00401068 <+104>:	li	v0,966
+   0x0040106c <+108>:	j	0x401078 <phase_3+120>
+   0x00401070 <+112>:	addiu	v0,v0,-319
+   0x00401074 <+116>:	move	v0,zero
+   0x00401078 <+120>:	j	0x401084 <phase_3+132>
+   0x0040107c <+124>:	addiu	v0,v0,905
+   0x00401080 <+128>:	move	v0,zero
+   0x00401084 <+132>:	j	0x401090 <phase_3+144>
+   0x00401088 <+136>:	addiu	v0,v0,-273
+   0x0040108c <+140>:	move	v0,zero
+   0x00401090 <+144>:	j	0x40109c <phase_3+156>
+   0x00401094 <+148>:	addiu	v0,v0,273
+   0x00401098 <+152>:	move	v0,zero
+   0x0040109c <+156>:	j	0x4010a8 <phase_3+168>
+   0x004010a0 <+160>:	addiu	v0,v0,-273
+   0x004010a4 <+164>:	move	v0,zero
+   0x004010a8 <+168>:	j	0x4010b4 <phase_3+180>
+   0x004010ac <+172>:	addiu	v0,v0,273
+   0x004010b0 <+176>:	move	v0,zero
+---Type <return> to continue, or q <return> to quit---
+   0x004010b4 <+180>:	j	0x4010c8 <phase_3+200>
+   0x004010b8 <+184>:	addiu	v1,v0,-273
+   0x004010bc <+188>:	jal	0x40192c <explode_bomb>
+   0x004010c0 <+192>:	move	at,at
+   0x004010c4 <+196>:	move	v1,zero
+   0x004010c8 <+200>:	lw	v0,24(sp)
+   0x004010cc <+204>:	slti	v0,v0,6
+   0x004010d0 <+208>:	beqz	v0,0x4010e0 <phase_3+224>
+   0x004010d4 <+212>:	lw	v0,28(sp)
+   0x004010d8 <+216>:	beq	v1,v0,0x4010ec <phase_3+236>
+   0x004010dc <+220>:	lw	ra,36(sp)
+   0x004010e0 <+224>:	jal	0x40192c <explode_bomb>
+   0x004010e4 <+228>:	move	at,at
+   0x004010e8 <+232>:	lw	ra,36(sp)
+   0x004010ec <+236>:	jr	ra
+   0x004010f0 <+240>:	addiu	sp,sp,40
+End of assembler dump.
+
+first number < 8
+
+phase_4:
+
+two numbers
+first less than 15
+has to do with multiplying by 2
+runs first number amount of times
+
+phase_5:
+
+Dump of assembler code for function phase_5:
+   0x004011e0 <+0>:	addiu	sp,sp,-32
+   0x004011e4 <+4>:	sw	ra,28(sp)
+   0x004011e8 <+8>:	sw	s0,24(sp)
+   0x004011ec <+12>:	move	s0,a0
+   0x004011f0 <+16>:	jal	0x401574 <string_length>
+   0x004011f4 <+20>:	move	at,at
+   0x004011f8 <+24>:	li	v1,6
+   0x004011fc <+28>:	beq	v0,v1,0x401210 <phase_5+48>
+   0x00401200 <+32>:	move	v1,zero
+   0x00401204 <+36>:	jal	0x40192c <explode_bomb>
+   0x00401208 <+40>:	move	at,at
+   0x0040120c <+44>:	move	v1,zero
+   0x00401210 <+48>:	move	v0,zero
+   0x00401214 <+52>:	lui	a2,0x40
+   0x00401218 <+56>:	addiu	a2,a2,11696
+   0x0040121c <+60>:	li	a1,6
+   0x00401220 <+64>:	addu	a0,s0,v0
+   0x00401224 <+68>:	lbu	a0,0(a0)
+   0x00401228 <+72>:	andi	a0,a0,0xf # a0 = lower 4 bits of current letter
+   0x0040122c <+76>:	sll	a0,a0,0x2     # a0 = lower 4 bits of curr letter x 4
+   0x00401230 <+80>:	addu	a0,a0,a2  # a0 += 4206000
+   0x00401234 <+84>:	lw	a0,0(a0)
+   0x00401238 <+88>:	addiu	v0,v0,1
+   0x0040123c <+92>:	bne	v0,a1,0x401220 <phase_5+64>
+   0x00401240 <+96>:	addu	v1,v1,a0
+   0x00401244 <+100>:	li	v0,41
+   0x00401248 <+104>:	beq	v1,v0,0x40125c <phase_5+124>
+   0x0040124c <+108>:	lw	ra,28(sp)
+   0x00401250 <+112>:	jal	0x40192c <explode_bomb>
+   0x00401254 <+116>:	move	at,at
+   0x00401258 <+120>:	lw	ra,28(sp)
+   0x0040125c <+124>:	lw	s0,24(sp)
+   0x00401260 <+128>:	jr	ra
+   0x00401264 <+132>:	addiu	sp,sp,32
+End of assembler dump.
+
+Notes:
+
+pin is a string?
+$a0 = pin
+
+line 28: length of pin (string) is 5 (plus 1 null char)
+
+line 56: $a2 = 4206000
+
+line 60: $a1 = 6, $v0 = 0, $s0 = $a0 = 4278624 for $a0 = "5chars"
+
+line 64: $a0 = $a0 + $v0 = a0 + counter
+
+line 68: $a0 = 53
+
+line 72: $a0 = 5
+
+line 76: $a0 = 5 x 4 = 20
+
+line 80: $a2 = 4206000 (constant), $a0 = 204206020
+In general: $a0 = MEM[pin] AND 0xf x 4 ADDU 4206000
+
+line 84: $a0 = MEM[$a0] = 16 (still following pin = "5char")
+
+line 88: $v0 = $v0 + 1 = 1
+
+line 92: for ( i=0; i<6; i++ ) { branch to line 64 }
+This for-loop iterates 7 times
+
+line 96: $v0 = 41, $a0 = 1, $v1 = 38
+this line is unreachable in gdb, but we can solve for old $v1 value
+$v1_old = $v1_new - $a0 = 38 - 1 = 37
+
+line 100: $v0 = 41
+
+line 104: if ( v1 != v0 ) { EXPLODE }
+$a0 = 1, $v0 = 41, $v1 = 38
+
+So, we want v1_new = v1_old + a0 = 41 (unsigned addition) after the loop.
+
+VALUES IN LOOP FOR PIN = "5char"
+
+Breakpoint 6, 0x0040123c in phase_5 ()
+3: $a0 = 16
+2: $v1 = 0
+1: $v0 = 1
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0040123c in phase_5 ()
+3: $a0 = 1
+2: $v1 = 16
+1: $v0 = 2
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0040123c in phase_5 ()
+3: $a0 = 4
+2: $v1 = 17
+1: $v0 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0040123c in phase_5 ()
+3: $a0 = 10
+2: $v1 = 21
+1: $v0 = 4
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0040123c in phase_5 ()
+3: $a0 = 6
+2: $v1 = 31
+1: $v0 = 5
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0040123c in phase_5 ()
+3: $a0 = 1
+2: $v1 = 37
+1: $v0 = 6
+
+NOTES FOR NEXT TIME: I'm trying to decode how the loop (with 7 iterations)
+affects a0, so that my input (a0) will make v1 = 41 after the loop is done. v1
+is the sum of a0 across every iteration of the loop!!! Basically, we want to
+make sure that:
+
+a0_0 + a0_1 + a0_2 + a0_3 + a0_4 + a0_5 + a0_6 = 41
+
+
+change last letter so that:
+line 76: a0 = 32
+
+phase_6 notes:
+
+Dump of assembler code for function phase_6:
+   0x00401268 <+0>:	addiu	sp,sp,-104
+   0x0040126c <+4>:	sw	ra,100(sp)
+   0x00401270 <+8>:	sw	s5,96(sp)
+   0x00401274 <+12>:	sw	s4,92(sp)
+   0x00401278 <+16>:	sw	s3,88(sp)
+   0x0040127c <+20>:	sw	s2,84(sp)
+   0x00401280 <+24>:	sw	s1,80(sp)
+   0x00401284 <+28>:	sw	s0,76(sp)
+=> 0x00401288 <+32>:	addiu	a1,sp,24
+   0x0040128c <+36>:	jal	0x401b04 <read_six_numbers>
+   0x00401290 <+40>:	move	at,at
+   0x00401294 <+44>:	addiu	s3,sp,24 # s3 = 2147444264
+   0x00401298 <+48>:	move	s4,zero  # s4 = 0 // s4 is a counter (loop iterates 7 times)
+   0x0040129c <+52>:	li	s5,6         # s5 = 6
+   0x004012a0 <+56>:	lw	v0,0(s3)     # v0 = firstNum (maybe v0 = nextNum)???
+   0x004012a4 <+60>:	addiu	v0,v0,-1 # v0 = firstNum - 1 (maybe v0 = nextNum - 1)???
+   0x004012a8 <+64>:	sltiu	v0,v0,6  # if ( v0 < 6 ) { v0 = 1 }
+   0x004012ac <+68>:	bnez	v0,0x4012bc <phase_6+84> # if ( v0 == 1 ) { EXPLODE }
+   0x004012b0 <+72>:	move	s2,s3
+   0x004012b4 <+76>:	jal	0x40192c <explode_bomb>
+   0x004012b8 <+80>:	move	at,at
+   0x004012bc <+84>:	addiu	s4,s4,1   # s4 = 1 (counter)
+   0x004012c0 <+88>:	beq	s4,s5,0x401330 <phase_6+200> # if ( s4 == 6 ) { branch +200 }
+   0x004012c4 <+92>:	sll	s0,s4,0x2     # s0 = s4 * 4
+   0x004012c8 <+96>:	addiu	v0,sp,24  # v0 = 2147444264
+   0x004012cc <+100>:	addu	s0,v0,s0  # s0 = 2147444264 + s4 * 4 (s4 is a counter for s4 = 0:6)
+   0x004012d0 <+104>:	move	s1,s4     # s1 = s4 = counter (for s4 = 0:6)
+   0x004012d4 <+108>:	lw	v1,0(s2)      # v1 = 6 (on first iteration, at least... still 6 after +140)
+   0x004012d8 <+112>:	lw	v0,0(s0)      # v0 = nextNum (for pin[1]:pin[5])
+   0x004012dc <+116>:	bne	v1,v0,0x4012ec <phase_6+132> if ( v1 != v0 ) { branch +132 }
+   0x004012e0 <+120>:	move	at,at
+   0x004012e4 <+124>:	jal	0x40192c <explode_bomb>
+   0x004012e8 <+128>:	move	at,at
+   0x004012ec <+132>:	addiu	s1,s1,1  # s1 = s4 + 1
+   0x004012f0 <+136>:	slti	v0,s1,6 # if ( s1 < 6 ) { v0 = 1 } else { v0 = 0 }
+   0x004012f4 <+140>:	bnez	v0,0x4012d4 <phase_6+108> # if ( v0 != 0 ) { branch +108 }
+   0x004012f8 <+144>:	addiu	s0,s0,4 # s0 += 4
+   0x004012fc <+148>:	j	0x4012a0 <phase_6+56>
+
+										 # for loop so far:
+
+										 # for ( s4 = 0; s4 < 6; s4++ ) {
+										 #     // Do stuff...
+										 #     if ( currNum == 6 ) { EXPLODE } // currNum = pin[1:]
+										 # 	   for ( s1 = s4 + 1 < 6 ) { execute +108 : +136 }
+										 # // The second for loop basically does nothing
+										 # }
+
+   0x00401300 <+152>:	addiu	s3,s3,4
+   0x00401304 <+156>:	addiu	v1,a3,16612 # v1 = a3 + 16612 = 4276452 (note: MEM[v1] = 407)
+   0x00401308 <+160>:	addiu	v0,v0,1     # v0 += 1
+   0x0040130c <+164>:	bne	v0,a0,0x401308 <phase_6+160> # assuming 
+   0x00401310 <+168>:	lw	v1,8(v1)
+   0x00401314 <+172>:	addiu	a0,sp,48
+   0x00401318 <+176>:	addu	v0,a0,a1
+   0x0040131c <+180>:	addiu	a1,a1,4
+   0x00401320 <+184>:	bne	a1,a2,0x40133c <phase_6+212>
+   0x00401324 <+188>:	sw	v1,0(v0)
+   0x00401328 <+192>:	j	0x40135c <phase_6+244>
+   0x0040132c <+196>:	lw	s0,48(sp)
+   0x00401330 <+200>:	move	a1,zero   # a1 = 0
+   0x00401334 <+204>:	lui	a3,0x41       # a3 = 4259840
+   0x00401338 <+208>:	li	a2,24		  # a2 = 24
+   0x0040133c <+212>:	addiu	v1,sp,24  # v1 = 2147444264 (note: MEM[v1] = 6 for now, at least)
+   0x00401340 <+216>:	addu	v0,v1,a1  # v0 = v1 + a1 = 2147444264
+   0x00401344 <+220>:	lw	a0,0(v0)	  # a0 = 6 (for now, at least)
+   0x00401348 <+224>:	slti	v0,a0,2   # if ( a0 < 2 ) { v0 = 1 } else { v0 = 0 }
+   0x0040134c <+228>:	beqz	v0,0x401304 <phase_6+156> # if ( v0 == 0 ) { branch +156 }
+   0x00401350 <+232>:	li	v0,1
+   0x00401354 <+236>:	j	0x401314 <phase_6+172>
+   0x00401358 <+240>:	addiu	v1,a3,16612
+   0x0040135c <+244>:	lw	v0,52(sp)
+   0x00401360 <+248>:	sw	v0,8(s0)
+   0x00401364 <+252>:	lw	v1,56(sp)
+   0x00401368 <+256>:	sw	v1,8(v0)
+   0x0040136c <+260>:	lw	v0,60(sp)
+   0x00401370 <+264>:	sw	v0,8(v1)
+   0x00401374 <+268>:	lw	v1,64(sp)
+   0x00401378 <+272>:	sw	v1,8(v0)
+   0x0040137c <+276>:	lw	v0,68(sp)
+   0x00401380 <+280>:	sw	v0,8(v1)
+   0x00401384 <+284>:	sw	zero,8(v0)
+   0x00401388 <+288>:	li	s1,5
+   0x0040138c <+292>:	lw	v0,8(s0)
+   0x00401390 <+296>:	lw	v1,0(s0)
+   0x00401394 <+300>:	lw	v0,0(v0)
+   0x00401398 <+304>:	slt	v0,v1,v0 # if ( v1 < v0 ) { v0 = 1 } else { v0 = 0 }
+   0x0040139c <+308>:	beqz	v0,0x4013ac <phase_6+324> # if ( v0 == 0 ) { branch +324 } else { EXPLODE }
+   0x004013a0 <+312>:	move	at,at
+   0x004013a4 <+316>:	jal	0x40192c <explode_bomb>
+   0x004013a8 <+320>:	move	at,at
+   0x004013ac <+324>:	addiu	s1,s1,-1
+   0x004013b0 <+328>:	bnez	s1,0x40138c <phase_6+292>
+   0x004013b4 <+332>:	lw	s0,8(s0)
+   0x004013b8 <+336>:	lw	ra,100(sp)
+   0x004013bc <+340>:	lw	s5,96(sp)
+   0x004013c0 <+344>:	lw	s4,92(sp)
+   0x004013c4 <+348>:	lw	s3,88(sp)
+   0x004013c8 <+352>:	lw	s2,84(sp)
+   0x004013cc <+356>:	lw	s1,80(sp)
+   0x004013d0 <+360>:	lw	s0,76(sp)
+   0x004013d4 <+364>:	jr	ra
+   0x004013d8 <+368>:	addiu	sp,sp,104
+
+pin must be 6 numbers
+
+firstNum != 1
+secondNum != 6
+thirdNum != 2
+fourthNum != 3
+fifthNum != 4
+sixthNum != 5
+numbers must be distinct
+all nums <= 6
+
+(gdb) p *(int *) ($sp + 52)
+$42 = 2011793572
+(gdb) p *(int *) ($sp + 56)
+$43 = 2
+(gdb) p *(int *) ($sp + 60)
+$44 = 1
+(gdb) p *(int *) ($sp + 64)
+$45 = 6
+(gdb) p *(int *) ($sp + 68)
+$46 = 5
+
+
+NEED: s1 - 1 = 0 at +324
+NEED: 
+
+

@@ -1,0 +1,25 @@
+|======================|
+| Prelab 2 - 30 points |
+|======================|
+
+* Problem 1 - 15 points *
+Compiles, runs, and outputs accurate results.
+
+* Problem 2 - 15 points *
+Compiles, runs, and outputs accurate results.
+Answers in submission are correct.
+
+|===================|
+| Lab 2 - 70 points |
+|===================|
+
+* Problem 1 - 30 points *
+Compiles, runs, and outputs accurate results.
+
+* Problem 2 - 20 points *
+Compiles, runs, and outputs accurate results.
+
+* Problem 3 - 20 points *
+Compiles, runs, and outputs accurate results.
+
+Total: 100/100

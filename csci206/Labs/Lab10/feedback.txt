@@ -1,0 +1,29 @@
+------------------------------------------------------------
+Lab10 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+prelab: bit operations: Exercise 1-4: Function implemented in C. Logic is correct and only used
+allowed operators.
+	Score: 20 / 20
+prelab: float min and max: Exercise 5: Clear derivation for both single and double precision floating
+point min and max positive numbers.
+	Score: 0 / 5
+	Comment: -5 points: file not found.
+
+Exercise 1: Modified floats.s to define the correct values for ohs and ohd.
+	Score: 10 / 10
+Exercise 2: inspect_float and inspect_double work correctly. Implemented f2u, u2f, d2u,
+and u2d in floats.s.
+	Score: 25 / 25
+Exercise 3: precision implemented. Comments have the correct value for the next float
+after 1.0. Comments discuss how precision changes for large/small numbers.
+	Score: 25 / 25
+	Comment: please put the value in comments
+
+Exercise 4: sum added with comments describing why it doesn’t work as it. Implemented the
+is_near function and modified sum to use it with an appropriate epsilon.
+	Score: 15 / 15
+------------------------------------------------------------
+TOTAL 95.0 / 100.0
+------------------------------------------------------------
+
+NOTE: Please don't commit executable file to the repo!

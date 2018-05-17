@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h3 {text-align:center;}
+p {text-align:center;}
+</style>
+</head>
+<body>
+
+  <ion-content padding>
+    <h3>Welcome to OIT Assistant!</h3>
+
+    <p><font size="3">Please login or click register</font></p>
+
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="Email" #username [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password" #password [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="login()">Login</button>
+    <button ion-button block (click)="register()">Register</button>
+
+  </ion-content>
+
+</body>
+</html>

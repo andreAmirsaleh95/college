@@ -1,0 +1,21 @@
+------------------------------------------------------------
+Lab01 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+Setup: [20 points] will be given for correctly creating ~/csci206/Labs/Lab01 and
+placing your lab01.txt file in the right location.
+	Score: 20 / 20
+	Comment: Good
+
+Short answers: 1. [15 points] One line mkdir ~/csci206/Labs/Lab01 command.
+  2. [5 point each] One sentence description of each of the following commands do: cat, more, less, head, and tail.
+  3. [10 points] The complete command line to start up emacs without a GUI.
+  4. [10 points] What is the command to show line numbers in vim?
+  5. [10 points] What is the command to show line numbers in emacs?
+  6. [10 points] Complete this sentence in your file: After careful consideration, I will use  in csci206 as my text editor.
+	Score: 80 / 80
+	Comment: Good
+
+------------------------------------------------------------
+TOTAL 100.0 / 100.0
+------------------------------------------------------------
+

@@ -1,0 +1,27 @@
+(P1) socket(2), like pipe(2) and open(2), returns a descriptor to allow for
+     inter-process communication. However, socket(2) differs from those two
+     functions in that it is designed to link programs across a network.
+
+(P2) 1. Call to socket(2) and then bind(2) sets up the socket, and connect(2)
+        allows the other program to access the socket.
+
+     2. The call to bind(2) is to associate the socket with a port on the local
+        machine.
+
+     3. The call to connect(2) connects a port on the local machine to a remote
+        host.
+
+     4. The call to listen(2) allows the local machine to listen for incoming
+        requests from the remote host.
+
+     5. The call to accept(2) actually handles the request that was caught by
+		listen(2).
+
+     6. send() and recv() are used to send and recieve messages.
+		See the following definitions:
+        	int send(int sockfd, const void *msg, int len, int flags); 
+				- note: recv() returns the number of bytes actually read into
+				  the buffer
+
+        	int recv(int sockfd, void *buf, int len, int flags);
+			- note: send() returns the number of bytes actually sent out

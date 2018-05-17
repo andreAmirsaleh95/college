@@ -1,0 +1,15 @@
+Andre Amirsaleh
+CSCI206
+Lab01
+1/19/2016
+
+1. mkdir -p
+2. cat: concatonate file(s), or standard input, to standard output
+more: moves through text one pageful at a time
+less: opposite of more
+head: output first part of file
+tail: output last part of file
+3. emacs -nw
+4. :set number
+5. M-x linum-mode
+6. After careful consideration, I will use emacs in csci206 as my text editor.

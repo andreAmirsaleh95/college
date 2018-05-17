@@ -1,0 +1,35 @@
+{ "height":1,
+ "layers":[
+        {
+         "data":[1],
+         "height":1,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":1,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tileheight":576,
+ "tilesets":[
+        {
+         "columns":1,
+         "firstgid":1,
+         "image":"Bombing_Chap_Sprite_Set\/Sprites\/title_flat.jpg",
+         "imageheight":576,
+         "imagewidth":576,
+         "margin":0,
+         "name":"title_flat",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":576,
+         "tilewidth":576
+        }],
+ "tilewidth":576,
+ "version":1,
+ "width":1
+}

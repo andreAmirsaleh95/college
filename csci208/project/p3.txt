@@ -1,0 +1,10 @@
+Andre Amirsaleh
+
+I would like to implement a stenography program (a virtual steno machine). The
+purpose of said program is to translate pre-defined shortcuts to full-length
+words in real time. This project would give me the opportunity to showcase
+Scala's OOP as well as its ease of use with lists and arrays while maintaining
+a speedy transfer of data. Given the nature of the assignment, this project
+could also give me an opportunity to take advantage of Scala's GUI programming
+as well as other paradigms. The point is that I should be able to easily
+implement more and more features for such a program given the nature of Scala.

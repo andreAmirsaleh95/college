@@ -1,0 +1,43 @@
+Segment     |    Start    |     End      |     Size
+------------+-------------+--------------+-------------
+Stack       | 0x7fff ff85 | 0x7fff ffff  |  0x0000 007a
+Heap        |     ---     |      ---     |  ---
+Data        | 0x0040 0100 | 0x0040 0298  | 0x0000 0198
+Text        | 0x0040 0000 | 0x0040 00ff  | 0x0000 0100
+ 
+* note all addresses are inclusive.
+
+
+notes:
+
+stack size = 0x16 + 0x64 = 0x0000 007a
+
+stack start = end - size = 0x7fff ffff - 0x0000 007a = 0x7fff ff85
+
+text end = 0x0040 0000 + 0x0000 0100 = 0x0040 0100
+
+data end = start + size = 0x0040 0100 + 0x0000 0198 = 0x0040 0298
+
+data size = int_size * num_ints = 4 * 102 = 408 = 0x0000 0198
+
+
+*** EXERCISE2 ***
+dialog-based syscalls using MARS:
+
+1.	li $v0, 1
+	syscall
+
+2.	li $v0, 1
+	add $a0, $t0, $zero
+	syscall
+
+3.	li $v0, 8
+	la $a0, my_str
+	li $a1, 100
+	syscall
+
+4.	li $v0, 4
+	la $a0, prompt
+	syscall
+
+5.	

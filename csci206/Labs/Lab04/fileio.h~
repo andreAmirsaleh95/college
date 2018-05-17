@@ -1,0 +1,9 @@
+#ifndef __fileio_h_
+#define MAXROWS 1024
+#define MAXCOLS 32
+#define MAXLEN 64
+#define __fileio_h_
+ 
+int read_file_bytes (char* filename, int bytes, char* buffer);
+ 
+#endif

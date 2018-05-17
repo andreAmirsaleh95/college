@@ -1,0 +1,27 @@
+Team: Andre Amirsaleh and Stefano Cobelli
+Course: CSCI 208 - Programming Language Design (1:00PM section)
+Prof: Benoit Razet
+Date: 10/21/16
+
+
+1. See file: prob1.pdf
+
+2. Pass-by-value-shallow (prints "2\n5\n")
+
+3. See files: prob3a.cpp and prob3b.cpp and NOT prob3.cpp (I pushed that by accident)
+
+4. (a) 4
+       4
+       36
+
+       Note: the output shown above is what we got when we ran our Prob4.java file,
+       So peep that for partial credit.
+
+   (b) 3        = initial a-value (printed by sqr's first line of code)
+       4        = previous a-value + 1 (printed by sqr's first call to dbl)
+       5        = previous a-value + 1 (printed by sqr's second call to dbl)
+       48       = 6 * 8 = (3 + 3) * (4 + 4) = (first call to dbl) * (second call to dbl) (note: printed by main)
+    
+   (c) variable scoping
+
+5. See file: shortcircuit.cpp

@@ -1,0 +1,34 @@
+Author: Andre Amirsaleh
+Course: CSCI 315L - Operating Systems Design (1:00PM section)
+Assignment: Lab6
+Prof: Felipe
+
+1.1) Everything seems to be working as expected -- infinite loop wherein no two
+     adjacent philosophers are eating at the same time, and the philosophers
+     share the chopsticks pretty evenly (AKA no one philosopher gets way more
+     chopstick time than the others).
+
+1.2) Deadlock may occur if the following four conditions are met
+     simultaneously: mutual exclusion (only one process at a time can use a
+     resource), hold and wait (a process holding at least one resource is
+     waiting to acquire additional resources held by other processes), no
+     preemption (a resource can be released only voluntarily by the process
+     holding it, after that process has completed its task), and circular wait.
+
+     The first three conditions, mutual exclusion, hold-and-wait and no
+     premetion, are met because we are using mutexes as chopsticks. We can say
+     that the fourth condition, circular wait, is met because it is possible
+     (in my particular implementation / solution to problem 1) for each of the
+     philosopher threads to pick up the chopstick to their left at the "same
+     time" and then wait indefinitely for the chopstick to their right
+     indefinitely (DEADLOCK IS POSSIBLE).
+
+2.1) I was able to create a circular dependency by calling napping (for two
+     seconds) after the call to pthread_mutex_lock on every iteration. The
+     output (before deadlock occurs) is different every time that I run it, but
+     the number of iterations before the deadlock occurs seems to stay the same
+     more or less. In other words, the program enters deadlock VERY quickly
+     every single time that I run it.
+
+3.1) My solutions (files problem3-1.c and problem3-2.c) both eliminate the risk
+     of deadlock occurring by eliminating risk of circular wait.

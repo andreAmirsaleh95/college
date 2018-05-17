@@ -1,0 +1,134 @@
+(1.1) To prevent buffer overflow, over2 calls fgets on the first 9 characters
+	  of the user's input whereas over1 does not specify the length of the
+	  input string to read.
+
+(1.2) By using scanf, over3 does not specify the number of characters to read
+	  from the input string, which runs the risk of buffer overflow because
+	  scanf will try to read strings of any length, regardless of how large
+	  they may be.
+
+(1.3) A rule of thumb would be to collect only a certain amount of input.
+	  Otherwise, your program runs the risk of overflow by trying to read
+	  extremely long input.
+
+(1.4) When using scanf, you should always specify the length of the input.
+
+(2.1) Main appears in the text, and the rest of the addresses appear in the
+	  stack.
+
+(2.2) Arguments a, b, c, and d are passed via registers a0, a1, a2, and a3
+	  respectively. Then, arguments, i and j, are passed onto the stack in that
+	  order.
+
+(2.3) 0x00400834. I used GDB to find the memory address of the instruction that
+	  is TWO lines below the call to test.
+
+(2.4) 0x7fb904d0: 0x00
+	  0x7fb904d1: 0x00
+	  0x7fb904d2: 0x00
+	  0x7fb904d3: 0x0b
+
+(2.5) Big-Endian
+
+(2.6) To determine the endian convention of a processor, define a variable as
+	  any value (i.e. 11), and then locate that variable in memory. If the
+	  variable's value is displayed with its most significant bit first, then
+	  the processor is Big-Endian. If the value is displayed with its least
+	  significant bit first, the processor is Little-Endian.
+
+(2.7)
+0x7fb90494: 0x00
+0x7fb90495: 0xb9
+0x7fb90496: 0x04
+0x7fb90497: 0x96
+0x7fb90498: 0x00
+0x7fb90499: 0x00
+0x7fb9049a: 0x00
+0x7fb9049b: 0x00
+0x7fb9049c: 0x00
+0x7fb9049d: 0x00
+0x7fb9049e: 0x00
+0x7fb9049f: 0x00
+0x7fb904a0: 0x00
+0x7fb904a1: 0x41
+0x7fb904a2: 0x8b
+0x7fb904a3: 0xb0
+0x7fb904a4: 0x00
+0x7fb904a5: 0x00
+0x7fb904a6: 0x00
+0x7fb904a7: 0x00
+0x7fb904a8: 0x77
+0x7fb904a9: 0xc5
+0x7fb904aa: 0xe9
+0x7fb904ab: 0x70
+0x7fb904ac: 0x00
+0x7fb904ad: 0x40
+0x7fb904ae: 0x09
+0x7fb904af: 0x0c
+0x7fb904b0: 0x77
+0x7fb904b1: 0xc6
+0x7fb904b2: 0xde
+0x7fb904b3: 0x20
+0x7fb904b4: 0x00
+0x7fb904b5: 0x00
+0x7fb904b6: 0x00
+0x7fb904b7: 0x0c
+0x7fb904b8: 0x7f
+0x7fb904b9: 0xb9
+0x7fb904ba: 0x04
+0x7fb904bb: 0xc0
+0x7fb904bc: 0x00
+0x7fb904bd: 0x40
+0x7fb904be: 0x08
+0x7fb904bf: 0x34
+0x7fb904c0: 0x00
+0x7fb904c1: 0x00
+0x7fb904c2: 0x00
+0x7fb904c3: 0x01
+0x7fb904c4: 0x00
+0x7fb904c5: 0x00
+0x7fb904c6: 0x00
+0x7fb904c7: 0x02
+0x7fb904c8: 0x00
+0x7fb904c9: 0x00
+0x7fb904ca: 0x00
+0x7fb904cb: 0x03
+0x7fb904cc: 0x00
+0x7fb904cd: 0x00
+0x7fb904ce: 0x00
+0x7fb904cf: 0x04
+
+(2.8) The return address
+
+(2.9) The stack segment
+
+(2.10) The prcoessor would execute code in the text segment. The processor
+	   would also be able to manipulate data stored in the text segment.
+
+(2.11)
+&buf[0] = 0x410c00
+&buf[1] = 0x410c01
+&buf[2] = 0x410c02
+&buf[3] = 0x410c03
+&buf[4] = 0x410c04
+&buf[5] = 0x410c05
+&buf[6] = 0x410c06
+&buf[7] = 0x410c07
+&buf[8] = 0x410c08
+&buf[9] = 0x410c09
+&buf[10] = 0x410c0a
+&buf[11] = 0x410c0b
+
+These addresses are now in the data segment rather than the stack segment. You
+can tell because their addresses used to be 0x7..., and now the addresses are
+0x4...
+
+(2.12) It is impossible to use a buffer overflow in (now, static) buf to force
+	   the program to jump to an arbitrary address because it is no longer
+	   stored on the stack (where the return address is stored).
+
+(3.1) rats concat.c shows that the fixed size local buffer as well as strcpy
+	  may cause buffer overflow.
+
+(3.2) In general, programs should avoid reading unfiltered input through
+	  functions like strcpy, fgets, strcat, etc.

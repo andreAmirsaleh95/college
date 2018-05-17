@@ -1,0 +1,9 @@
+(3.1) chmod
+
+(3.2) touch [filename]
+
+(3.3) gedit [filename] &
+
+(3.4) A program might need to know the maximum filename length of a system if
+      the program stores the filename in a fixed-length buffer -- in order to
+      prevent buffer-overflow.

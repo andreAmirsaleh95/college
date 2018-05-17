@@ -1,0 +1,32 @@
+Author: Andre Amirsaleh
+Course: CSCI 379 - Quantifying Data Privacy
+Professor: Darakhshan Mir
+Assignment: In-Class Activities from 2/6/17
+
+
+Based on the results in this chapter, suppose you were asked to summarize what
+you learned about whether first babies arrive late.
+
+Q1: Which summary statistics would you use if you wanted to get a story on the
+evening news?
+
+A1: I would use the difference in means because 13 hours sounds significant.
+
+Q2: Which ones would you use if you wanted to reassure an anxious patient?
+
+A2: I would use Cohen's difference because that more accurately depicts the
+    data's insignificance.
+
+Q3: Finally, imagine that you are Cecil Adams, author of The Straight Dope
+    (http://straightdope.com), and your job is to answer the question, “Do
+    first babies arrive late?” Write a paragraph that uses the results in this
+    chapter to answer the question clearly, precisely, and honestly.
+
+A3: The Center for Disease Control's (CDC) National Survey of Family Growth
+    (NSFG) collected data that suggest that first-born babies arrive thirteen
+    hours later than others do on average. However, relative to the general
+    variability of pregnancy lengths, this thirteen-hour difference turns out
+    to to be less than 5% of a standard deviation. In other words, the
+    thirteen-hour difference is statistically negligible. While we cannot say
+    that first-born babies take any longer or shorter to arrive, the data
+    should be re-evaluated without outliers.

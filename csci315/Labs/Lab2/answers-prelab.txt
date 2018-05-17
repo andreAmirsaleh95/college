@@ -1,0 +1,11 @@
+(2.1) A parent's heap is copied over to the child when fork() is called, but
+	  from then on, the parent and the child each has its own, independent
+	  heap.
+
+(2.2) The child process can access the same pipe that was modified by the
+	  parent process because the input for pipe()[0] is the output of
+	  pipe()[1], so the child process reads from pipe()[0] after the parent
+	  process closes pipe()[1].
+
+(2.3) Pipes allow for inter-process communication whereas files do not without
+	  the use of wait().

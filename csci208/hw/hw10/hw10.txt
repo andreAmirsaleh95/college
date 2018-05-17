@@ -1,0 +1,21 @@
+Andre Amirsaleh
+Partner: Stefano Cobelli
+
+1. (a) Left
+   (b) Ambiguous
+   (c) Right
+
+2. % < @ < ! == $ < & < ()
+
+3.)
+exp1 ::- exp1 '$' exp2 | exp1 '%' exp2 | exp2
+exp2 ::- exp2 '&' exp3 | exp3
+exp3 ::- exp4 '@' exp3 | exp4 '#' exp3 | exp4
+exp4 ::- '(' exp1 ')' | NUMBER
+
+4. Right
+
+5. @ > 7
+
+10. This language suffers from the dangling else problem, but it solves the
+    problem by requiring the user to close if statements with an endif.

@@ -1,0 +1,41 @@
+------------------------------------------------------------
+Lab11 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+prelab: questions: '
+
+  * (1.1) What is “stack smashing?”
+  * (1.2) What is it that makes stack smashing possible?
+  * (1.3) Describe what it means to disassemble machine code.
+  * (1.4) Log in to mips.bucknell.edu and compile the file example3.c to an executable called example3. Open this file in gdb as indicated in the “Buffer Overflows” section of the paper and disassemble the main function. If you open the example3.c file in your favorite text editor, you will see that its contents are very similar to the corresponding listing in the paper. Explain why the disassembled code looks so different from what you see in the paper and the code is slightly different (buffer1 + 24 vs. buffer1 + 12).
+  * (1.5) Describe why when you run example3 on the mips machine the output is 0 rather than 1.
+'
+	Score: 0 / 25
+	Comment: -25 points: absent in lab. 
+
+Exercise 1: * (1.1) What is “stack smashing?”
+  * (1.2) What is it that makes stack smashing possible?
+  * (1.3) Describe what it means to disassemble machine code.
+  * (1.4) Log in to mips.bucknell.edu and compile the file example3.c to an executable called example3. Open this file in gdb as indicated in the “Buffer Overflows” section of the paper and disassemble the main function. If you open the example3.c file in your favorite text editor, you will see that its contents are very similar to the corresponding listing in the paper. Explain why the disassembled code looks so different from what you see in the paper and the code is slightly different (buffer1 + 24 vs. buffer1 + 12).
+  * (1.5) Describe why when you run example3 on the mips machine the output is 0 rather than 1.
+	Score: 15 / 15
+Exercise 2: * (2.1) Reading the source code, determine in which segment of memory does each of these five address appear.
+  * (2.2) The question is in which order these parameters are pushed onto the stack: from left to right or from right to left? Referring to the assembly code in main, specify how each of the 6 parameters is passed on to function test and note the order in which the parameters that are passed on the stack are pushed onto the stack.
+  * (2.3) Your answer to this question should report your best estimate of the address of the first byte containing the return address of test and the method you used to find this information.
+  * (2.4) Look at the address that the program reports for variable i. Knowing that it is a 32-bit integer, give the hexadecimal value of each of the 4 individual bytes make up this value (you know that it represents 11, the actual parameter passed from main to test).
+  * (2.5) Looking at how the individual bytes that constitute the value of i are stored in memory, determine whether you are in a little endian or in a big endian processor.
+  * (2.6) Thinking of how you determined the endian convention of your processor above, describe a strategy you might use in the future to discover what is the endian convention of an arbitrary processor. Your description can be a mixture of C statements and plain English to explain it step-by-step.
+  * (2.7) Using the information you gathered so far, draw the stack frame for function test. Your must show the address each component of the stack frame for test, including each of the local variables in the function individually.
+  * (2.8) Look at the stack frame diagram you constructed above. Stack smashing uses the lack of array bounds checking in C to force a program to make a jump to an arbitrary address – that is, the address of a piece of code injected into a running program. What data item in the stack frame must be overwritten to make this jump possible?
+  * (2.9) For the scenario in this problem up to now: if one injects code into your running program via buffer overflow, into which segment of the program will this end up: text, data, stack, or heap segment?
+  * (2.10) You have learned about programs being structured into these four regions or “compartments,” the open question is how the processor deals with their boundaries. Would the processor possibly execute code that is not in the text segment? Would the processor be able to manipulate data stored in the text segment?
+  * (2.11) If you precede the declaration of buf with the keyword static, this array will be visible in the scope of function test but it will reside on the data segment of your program rather than on the stack. Make this modification in the program, recompile, and run it. Describe what evidence you find to confirm that buf is now in the data segment. Please do not overwrite your previously saved decode-run.txt file!
+  * (2.12) Consider what you observed when you place buf in the data segment of the program. Explain whether it is possible to use a buffer overflow in buf in this situation to force the program to jump to an arbitrary address.
+	Score: 36 / 36
+Exercise 3: * (3.1) Analyze the output of this program. In you answers.txt, Explain in your own words what makes concat.c an insecure program.
+  * (3.2) Now, also in your answers.txt, try to generalize from the experiences you’ve had in this lab to explain what type of programming “mistake” makes a program vulnerable to stack smashing attacks.
+  * (3.3) Adapt concat.c to eliminate, or at least, minimize the risks of stack smashing. Once you have tried your best, make sure to run it through rats again to verify that you managed to improve it.
+	Score: 24 / 24
+------------------------------------------------------------
+TOTAL 75.0 / 100.0
+------------------------------------------------------------
+

@@ -1,0 +1,31 @@
+PR-LAB QUESTIONS:
+
+1. Doubly linked lists are suitable for use in a custom memory allocator. One
+   doubly linked list can be used to keep track of allocated memory and another
+   can be used to keep track of unallocated memory.
+
+2. Stacks / heaps
+
+3. External fragmentation: Holes of unallocated blocks (in memory). This
+   happens when a relatively old process is killed and its memory is freed,
+   resulting in an unallocated block(s) that is surrounded by allocated
+   blocks; thus, making the efficient re-allocation of that freed space more
+   difficult.
+
+4. Internal fragmentation: Wasted space within allocated blocks. This happens
+   when a process allocates a block(s) of memory that is larger than necessary.
+
+5. First-fit (allocation-policy): Processes allocate the first section of
+   memory that is large enough.
+      Advantage: fast
+      Disadvantage: innefficient memory usage
+
+6. Best-fit (allocation-policy): Processes allocate the smallest possible
+   sections of unallocated memory.
+      - Advantage: efficient memory usage
+      - Disadvantage: slow
+
+7. Worst-fit (allocation policy): Processes allocate the largest possible
+   sections of unallocated memory
+      - Advantage: reduces fragmentation
+      - Disadvantage: slow

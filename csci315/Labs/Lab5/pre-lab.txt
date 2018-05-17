@@ -1,0 +1,26 @@
+Name: Andre Amirsaleh
+
+(2.1) Basically, a semaphore is a generalized mutex that allows the consumer
+	  and producer to work on different buffers at the same time.
+
+(2.2) 1. pthread_mutex_init initializes a mutex. If the attr argument is null,
+		 default parameters are used. If successful, the mutex becomes
+		 initialized and unlocked.
+
+	  2. pthread_mutex_lock locks the given mutex pointer
+
+	  3. pthread_mutex_unlock unlocks the given mutex pointer
+
+	  4. sem_init(3) initializes an unnamed semaphore using the given
+	     semaphor pointer.
+
+	  5. sem_wait(3) decrements (locks) the semaphore pointer. If
+		 the semaphore's value becomes greater than zero, the function
+		 immediately returns. If the semaphore's value is zero, the call blocks
+		 until either the value rises above zero, or a signal handler
+		 interrupts the call.
+
+	  6. sem_post(3) increments (unlocks) the given semaphore pointer. If the
+		 semaphore's value becomes greater than zero, another process will lock
+		 the semaphore.
+

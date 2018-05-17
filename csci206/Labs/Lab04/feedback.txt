@@ -1,0 +1,44 @@
+------------------------------------------------------------
+Lab04 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+prelab: zyBook activities
+	Score: 25 / 25
+calc.c: Exercise 1: calc.c program works as described and follows good coding
+conventions. -5 if it does not compile or has warnings. -1 for each minor
+error. -2 for each significant error.
+	Score: 10 / 10
+head.c: Exercise 2: head.c program works as described and follows good coding
+conventions. -5 if it does not compile or has warnings. -1 for each minor
+error. -2 for each significant error.
+	Score: 10 / 10
+notes.txt: Exercise 2: notes.txt created and correctly describes creat, open, read,
+write, close (2 points each).
+
+Exercise 4: notes.txt correctly describes fopen(3), fgets(3), fprintf(3),
+fseek(3), and fclose(3) (2 points each).
+	Score: 20 / 20
+head2: Makefile created to compile head2.c using head2.o and fileio.o. -5 points for:
+gcc –Wall head2.c fileio.c –o head2.
+	Score: 5 / 5
+read_file_bytes: Exercise 3: read_file_bytes removed from head2.c and added to fileio.c.
+fileio.h has correct declaration with include guard.
+	Score: 5 / 5
+head3: Exercise 4: head3.c created and uses read_file_lines in fileio.c/.h to read
+lines using the standard libraries. -5 if it does not compile or has warnings.
+-1 for each minor error. -2 for each significant error.
+	Score: 9 / 10
+	Comment: -1 point: read_file_lines should be in fileio.c/.h
+
+csv_avg: Exercise 5: csv_avg.c created; average, read_csv_row, and read_csv_cols
+implemented as described program works and follows good coding conventions. -5
+if it does not compile with the Makefile or has warnings. -1 for each minor
+error. -2 for each significant error. +5 bonus points for implementing an
+iterative average (mean) function. +5 bonus points for handling missing values
+with NAN.
+	Score: 13 / 15
+	Comment: -2 points: un-formatted output. 
+
+------------------------------------------------------------
+TOTAL 97.0 / 100.0
+------------------------------------------------------------
+

@@ -1,0 +1,44 @@
+1. SEE PYTHON FUNCTION BELOW
+def numDigitsR( x ):
+    """Returns the number of digits in x, a positive, base-10 integer.
+    Recursively implemented."""
+    BASE = 10;
+
+    if x < BASE:
+        return 1
+    
+    return 1 + numDigitsR( x // BASE ) # tail recursive! :)
+
+2. SEE PYTHON FUNCTION BELOW
+def myFoo( n ):
+    “””Does math things"""
+    myVar = n
+    result = 5
+
+    while myVar > 1:
+        result += myVar
+        myVar -= 1
+    return result
+
+3. Sharing compiled code with the public allows them to run
+   your program but does not allow them to see your source code.
+
+4. Interpreters are better for testing code as you write it because
+   you do not have to recompile the code every time you want to run
+   the program. This is especially useful for small programs that
+   are not going to be ran many times once its finished being written.
+   
+5. JIT is better for urrthang
+
+6. Interpreted code takes up the least space and is the slowest.
+   Compiled code takes up the most space and is the fastest.
+   JIT-compiled code takes up more space than interpreted code and
+   less space than compiled code and is faster than interpreted code
+   but slower than native code. However, JIT-compiled code, such as
+   Java code, can even be faster than compiled code through
+   optimizations.
+   
+7. JIT compilation for Java tends to perform faster than compiled
+   code using optimizations.
+   
+8. A concurrent JIT compiler can operate as the program executes.

@@ -1,0 +1,89 @@
+Author: Andre Amirsaleh
+Date: 10/7/16
+Course: CSCI 208 - Programming Language Design
+Prof: Benoit Razet
+
+2) Consume contains a memory leak because produce allocates heap memory
+   that is never freed by consume.
+
+   // Remove from FIFO queue
+   void Fifo:: consume (int v) {
+   	for (Node * temp = tail; temp != NULL; temp = tail) {
+   		if (temp->previous == NULL) {
+   			if (temp->x <= v) {
+   				tail = NULL;
+   				delete tail; // <-- ADDED THIS LINE
+   				head = NULL;
+   				delete head; // <-- ADDED THIS LINE
+   				return ;
+   			} else { / * temp−>x > v * /
+   				temp->x -= v;
+   				/* ***************** Point 1 ****************** * /
+   				return ;
+   			}
+   		} else {
+   			if (temp->x < v) {
+   				v -= temp->x;
+   				tail = temp−>previous;
+   				tail−>next = NULL;
+   				delete tail->next; // <-- ADDED THIS LINE
+   			} else {
+   				if (temp->x == v) {
+   					tail = temp−>previous;
+   					tail->next = NULL;
+   					delete tail->next; // <-- ADDED THIS LINE
+   					return ;
+   				} else { / * temp->x > v * /
+   					temp->x -= v;
+   					return ;
+   				}
+   			}
+   		}
+   	}
+   }
+
+3) An alias hazard appears because a variable (in this case, the variable named
+   temp) is unknowingly edited by one section of the code. In this case, the
+   for-loop depends on temp, so freeing temp causes the previously defined for-
+   loop to behave unpredictably--never stops running (AKA crashes).
+
+   // Remove from FIFO queue
+   void Fifo:: consume (int v) {
+   	for (Node * temp = tail; temp != NULL; temp = tail) {
+   		if (temp->previous == NULL) {
+   			if (temp->x <= v) {
+   				tail = NULL;
+   				delete tail; // <-- ADDED THIS LINE (prev problem)
+   				head = NULL;
+   				delete head; // <-- ADDED THIS LINE (prev problem)
+   				return ;
+   			} else { / * temp−>x > v * /
+   				temp->x -= v;
+   				/* ***************** Point 1 ****************** * /
+   				free(temp); // <-- This is Point 1
+   				return ;
+   			}
+   		} else {
+   			if (temp->x < v) {
+   				v -= temp->x;
+   				tail = temp−>previous;
+   				tail−>next = NULL;
+   				delete tail->next; // <-- ADDED THIS LINE (prev problem)
+   			} else {
+   				if (temp->x == v) {
+   					tail = temp−>previous;
+   					tail->next = NULL;
+   					delete tail->next; // <-- ADDED THIS LINE (prev problem)
+   					return ;
+   				} else { // temp->x > v
+   					temp->x -= v;
+   					return ;
+   				}
+   			}
+   		}
+   	}
+   }
+
+(4) infinite loop -- prints 7
+
+Note to grader: Memory map drawing is in the file called prob4.JPG

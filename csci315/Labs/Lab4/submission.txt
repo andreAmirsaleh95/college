@@ -1,0 +1,1 @@
+Everything should work like a charm. Just know that for the last problem, my echoreq2.c does not take the host argument anymore thanks to getnameinfo(3).

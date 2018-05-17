@@ -1,0 +1,70 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Spring 2016
+* Instructor: Brian King
+* Section: List time of your lecture
+*
+* Name: Andre Amirsaleh
+* Date: 2/2/2016
+*
+* Lab / Assignment: lab04
+*
+* Description:
+*
+* *****************************************/
+
+#### Q1 ####
+1d1f615 test1
+49f1422 more work
+1aee211 Init commit
+
+  master
+* myFeature
+
+#### Q2 ####
+42b9e9f (myFeature) test2
+1d1f615 test1
+49f1422 (HEAD, master) more work
+1aee211 Init commit
+
+#### Q3 ####
+* df7326f (HEAD, bugFix) Fixed bug
+| * 42b9e9f (myFeature) test2
+| * 1d1f615 test1
+|/  
+* 49f1422 (master) more work
+* 1aee211 Init commit
+
+#### Q4 ####
+* df7326f (HEAD, master, bugFix) Fixed bug
+| * 42b9e9f (myFeature) test2
+| * 1d1f615 test1
+|/  
+* 49f1422 more work
+* 1aee211 Init commit
+
+#### Q5 ####
+public class Main {
+	public static void main( String[] args ) {
+		System.out.println( "Init commit" );
+		System.out.println( "more work" );
+<<<<<<< HEAD
+		System.out.println("Fixed bug");
+=======
+		System.out.println( "test1" );
+		System.out.println( "test2" );
+>>>>>>> myFeature
+	}
+}
+
+#### Q6 ####
+*   7c205cf (HEAD, master) Merged myFeature
+|\  
+| * 42b9e9f (myFeature) test2
+| * 1d1f615 test1
+* | df7326f Fixed bug
+|/  
+* 49f1422 more work
+* 1aee211 Init commit
+
+

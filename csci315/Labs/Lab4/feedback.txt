@@ -1,0 +1,23 @@
+|======================|
+| Prelab 2 - 30 points |
+|======================|
+
+* Problem 1 - 30 points *
+
+|===================|
+| Lab 2 - 70 points |
+|===================|
+
+* Problem 1 - 10 points *
+
+* Problem 2 - 5 points *
+
+* Problem 3 - 25 points *
+
+* Problem 4 - 20 points *
+
+* Problem 5 - 10 points *
+
+-2: syscall.h in wrappers should be sys/syscall.h
+
+Total: 98/100

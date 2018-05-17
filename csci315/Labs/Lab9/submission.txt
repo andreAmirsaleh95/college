@@ -1,0 +1,2 @@
+Everything should be working as expected! See the top of my ishell.c file for
+comments regarding what you can and can't do with my implementation.

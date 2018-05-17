@@ -1,0 +1,49 @@
+Author: Andre Amirsaleh
+Date: 9/13/16
+Class: CSCI 315L (1:00PM)
+Professor: Felipe
+
+PROBLEM 1:
+1. The compiler did not recognize references to pow, pthread_create, and
+   pthread_join. See the following output:
+
+	/tmp/ccAzrKGo.o: In function `SumExp':
+	summation.c:(.text+0x90): undefined reference to `pow'
+	/tmp/ccAzrKGo.o: In function `main':
+	summation.c:(.text+0x2cd): undefined reference to `pthread_create'
+	summation.c:(.text+0x355): undefined reference to `pthread_join'
+	collect2: error: ld returned 1 exit status
+
+2. Append the -lm flag as follows:
+
+	gcc -std=gnu99 -Wall summation.c -o summation -lm
+
+3. Appending the -lm flag allowed the compiler to recognize the pow
+   function (thanks to the now linked math library), but it still does not
+   recognize the pthread functions. See the following output:
+
+	summation.c:(.text+0x2cd): undefined reference to `pthread_create'
+	summation.c:(.text+0x355): undefined reference to `pthread_join'
+
+PROBLEM 2:
+1. The main thread passes all of the arguments of a thread via one struct.
+
+2. calloc(3) is the same as malloc, but more convenient to use for allocating
+   memory for arrays.
+
+3. Detatched threads run independently and cannot be joined.
+
+4. pthread_join() allows the main thread to safely retieve the return values
+   of the other threads.
+
+5. The entire program exits.
+
+6. execl's call to /bin/ls replaces the entire program, so all threads are
+   exited.
+
+PROBLEM 4:
+1. In theory, my program is completely thread-safe.
+
+
+
+

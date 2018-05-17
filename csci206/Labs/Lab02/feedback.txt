@@ -1,0 +1,25 @@
+------------------------------------------------------------
+Lab02 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+prelab: [25 points] Prelab reading / activities (zybook).
+	Score: 25 / 25
+nogood and fsalary: nogood and fsalary correct and compile without warning with -Wall. -5 for each
+warning, -15 for an error
+	Score: 20 / 20
+change case: switchcase.c compiles without warning and operates correctly.
+	Score: 0 / 10
+	Comment: -10 points: switchcase.c not found.
+
+cvp: primefact.py and primefact.c exist, compile without warning, and speedup is
+reasonable (noted in primefact.c).
+	Score: 25 / 25
+as and ld: nogood.s and nogood.o exist.
+	Score: 5 / 10
+	Comment: -5 points: nogood.o not found
+
+isalary: ex1 salary and isalary correct and have all header information.
+	Score: 10 / 10
+------------------------------------------------------------
+TOTAL 85.0 / 100.0
+------------------------------------------------------------
+

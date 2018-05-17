@@ -1,0 +1,20 @@
+(1.2) After the call to fork(), there exists two instances of the num variable,
+	  one that exists in the memory space for the parent and one that exists in
+	  the memory space of the child.
+
+(2.1) pid, j, and y are all stored in the stack section because they are
+	  declared witin a fuction.
+
+	  i and x are stored in the data section because they are not declared
+	  within a function.
+
+(2.2) fork-data.c allows us to conclude that a parent process' data and stack
+	  sections are shared with a child process because the child process is
+	  able to manipulate variables stored to those memory sections by the
+	  parent process. However, once the child is created, these sections
+	  are not shared because the parent is not able to see the changes to
+	  these variables caused by the child process.
+
+(2.4) If one process closes a file, the other can still access it. If the child
+	  process reads from the "inherited" file, it will not affect what the
+	  parent process reads from the same file descriptor.

@@ -1,0 +1,10 @@
+Feedback for Lab0
+=================
+
+Problem 1 - 40/40
+---------------------
+Makefile ran and compiled without issue.
+
+Problem 2 - 30/30
+-----------------
+Program gave correct output and gave no errors.

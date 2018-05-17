@@ -1,0 +1,18 @@
+<ion-card id="timerC" justify-content-center *ngIf="timer">
+        <button ion-button *ngIf="timeInSeconds && timeInSeconds > 0" large full clear class="timer-button timer-text">{{timer.displayTime}}</button>
+</ion-card>
+
+<style>
+  .no-bottom-border.item .item-inner {
+      border-bottom: none !important;
+      background: #242424;
+  }
+  #timerC{
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+  #timerC *{
+    color: white !important;
+  }
+</style>

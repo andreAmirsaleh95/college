@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1194c958212ee684fb94fc13fa1dc4c2
+timeCreated: 1508959366
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Nonstop italic
+  fontNames:
+  - Nonstop italic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

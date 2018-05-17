@@ -1,0 +1,44 @@
+Feedback for Lab1
+=================
+
+Prelab 1 - 10/10
+----------------
+cmds.c asks for arguments and checks them.
+
+Prelab 2 - 10/10
+----------------
+cmdreverse.c properly reverses argument.
+
+Prelab 3 - 10/10
+----------------
+myprog.c properly creates subprocesses that count.
+
+Total: 30/30
+
+
+
+Problem 1 - 20/20
+---------------------
+5/5 - Added working code to base files.
+5/5 - Answer to b is accurate.
+10/10 - Processes terminate in correct order.
+
+Problem 2 - 23/25
+-----------------
+4/4 - Accurate description of variables in fork-data.c.
+5/5 - Conclusions for b are accurate.
+6/6 - fork-file.c works as expected.
+6/6 - Answers to d are accurate.
+2/4 - Fork wrapper is not properly exposed to the main function, and throws warnings.
+
+Problem 3 - 25/25
+-----------------
+15/15 - catcount.c works as expected.
+10/10 - print_environment works.
+
+Problem 4 - 0/5  Extra Credit
+-----------------------------
+0/5 - Makefile does not generate any executables, just binary files.
+
+
+Total: 68/70  +  0/5  =  68/70

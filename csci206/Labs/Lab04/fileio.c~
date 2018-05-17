@@ -1,0 +1,100 @@
+#ifndef __fileio_h_
+#define __fileio_h_
+ 
+int read_file_bytes (char* filename, int bytes, char* buffer);
+ 
+#endif
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXBYTES 1024
+#define MAXROWS 1024
+#define MAXCOLS 32
+#define MAXLEN 64
+
+int read_file_bytes (char* filename, int bytes, char* buffer)
+/*
+ * Reads data from a file and append a null terminator.
+ * 
+ *  filename: full path and filename to read from.
+ *  bytes: maximum number of bytes to read.
+ *  buffer: where to put the read data (note need bytes+1!).
+ *  Return value: number of bytes read or -1 on error.
+ */
+{
+    // your code here.
+	int fd = open(filename, O_RDWR);
+	int numBytes = read(fd, buffer, bytes);
+	close(fd);
+	buffer[bytes] = '\0';
+	return numBytes;
+}
+
+int read_csv_row(FILE* fd, char row_strings[MAXCOLS][MAXLEN]) {
+	char buf[MAXLEN*MAXCOLS];
+	char* tok;
+	int col = 0;
+	int numToks = 0;
+
+	// if fgets a new line:
+	if (fgets(buf, MAXCOLS*MAXLEN, fd)) {
+		tok = strtok(buf, ",");
+		// tokenize line upto MAXCOLS:
+		tok = strtok(NULL, ",");
+		numToks++;
+        // strip leading spaces from each token:
+		while (tok[0] == ' ') tok++;
+		// strncopy each token into row_strings[col]:
+		strncpy(row_strings[col], tok, MAXLEN);
+		printf("col:%d rowstrings[col]:%s\n", col, row_strings[col]);
+		for (col = 1; col < MAXCOLS; col++) {
+			// strip trailing newline from line:
+			buf[strlen(buf) - 1] = 0;
+			// tokenize line upto MAXCOLS:
+			tok = strtok(NULL, ",");
+			printf("tok: %s\n", tok);
+			if (strcmp(tok, NULL) == 0 && col > 1) {
+				break;
+			}
+			numToks++;
+        	// strip leading spaces from each token:
+			printf("before while\n");
+			while (tok[0] == ' ') tok++;
+			printf("after while\n");
+			// strncopy each token into row_strings[col]:
+			strncpy(row_strings[col], tok, MAXLEN);
+			printf("col:%d rowstrings[col]:%s\n", col, row_strings[col]);
+    	}
+	} else {
+		return -1; // fgets failed (EOF)
+	}
+    // return number of tokens [0...MAXCOLS] read:
+	return numToks;
+}
+
+int read_csv_cols(FILE* fd, float data[MAXROWS][MAXCOLS]) {    
+    char tmp_row[MAXCOLS][MAXLEN];
+    int row = 0;
+	int n;
+	int col;
+
+    do {
+		n = read_csv_row(fd, tmp_row); // returns number of cols
+		if (n == -1) {
+			break;
+		} else { //iterate over columns in tmp_row
+			for (col = 0; col < MAXROWS; col++) {
+				data[row][col] = atof(tmp_row[col]);
+			}
+		}
+		row++;
+    } while (row < MAXROWS);
+	return row + 1; // number of rows read.
+}
+
+
+

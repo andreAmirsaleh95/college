@@ -1,0 +1,24 @@
+|======================|
+| Prelab 7 - 30 points |
+|======================|
+
+* Problem 1 - 30 points *
+
+|===================|
+| Lab 7 - 70 points |
+|===================|
+
+* allocator_init - 12 points *
+
+* explain policies - 12 points *
+
+* allocate - 12 points *
+
+* modify dlist - 7 points *
+
+* deallocate - 12 points *
+
+* test code - 15 points *
+
+
+Total: 100/100

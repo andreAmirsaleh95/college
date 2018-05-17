@@ -1,0 +1,35 @@
+------------------------------------------------------------
+Lab08 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+prelab: snode.h: snode.h has a working definition of struct snode and declaration for
+snode_create.
+	Score: 10 / 10
+prelab: snode.c: snode.c has a correct snode_create that uses malloc and strcpy; -3 if it does
+not set length, str, or next.
+	Score: 10 / 10
+prelab: snode-test: snode-test works and compiles with a valid Makefile.
+	Score: 10 / 10
+	Comment: next time please compile with -Wall
+
+dnone_test: dnode.h / .c created and dnode_test.c runs without memory leaks.
+	Score: 24 / 25
+	Comment: -1 point: wrong file name
+
+dlist: dlist.h / .c created with basic functions (create, destroy, add_front,
+add_back).
+	Score: 15 / 15
+song_list: song_list runs correctly (5 points) without memory leaks (5 points).
+	Score: 8 / 10
+	Comment: -2 points: dlist.c:(.text+0x1fe): undefined reference to `dnode_cmp'
+
+dlist_funcs: higher level functions (insert_before, insert_after, find, remove) added to
+dlist.
+	Score: 15 / 15
+dlist_test: dlist_test runs correctly (5 points) without memory leaks (5 points).
+	Score: 7 / 10
+	Comment: -3 points: won't compile. dlist.c:(.text+0x1fe): undefined reference to `dnode_cmp'
+
+------------------------------------------------------------
+TOTAL 99.0 / 105.0
+------------------------------------------------------------
+

@@ -1,0 +1,21 @@
+|======================|
+| Prelab 6 - 30 points |
+|======================|
+
+* Problem 1 - 15 points *
+
+* Problem 2 - 15 points *
+
+|===================|
+| Lab 6 - 70 points |
+|===================|
+
+* Problem 1 - 30 points *
+
+* Problem 2 - 20 points *
+
+* Problem 3 - 20 points *
+
+Note: Try to eliminate all warnings before submitting.
+
+Total: 100/100

@@ -1,0 +1,23 @@
+------------------------------------------------------------
+Lab03 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+c_mystery.c: c_mystery.c was created and it implements the proper algorithm.
+	Score: 20 / 20
+conventions: Followed good coding conventions.
+	Score: 10 / 10
+prelab: * [1 point each, 4 total] Exercise 1: Debugging questions answered correctly.
+  * [2 points each, 12 total] Exercise 2: Answers for the register groups $at, $a0-$a3, $t0-$t9, $s0-$s7, $gp, and $sp.
+  * [1 points each, 4 total] Exercise 3: Each instruction and its effect are described accurately.
+  * [1 point each, 5 total] Exercise 4: Base conversions show intermediate steps and arrive at the correct result.
+	Score: 25 / 25
+mystery.asm: All register numbers in mystery.asm converted to the appropriately named
+register. -1 for each register not converted. Comments added to mystery.asm
+clearly indicate an understanding of what the program is doing (not just what
+each line does in isolation).
+	Score: 35 / 35
+c_mystery.asm: generated c_mystery.asm using mipsel-linux-gcc
+	Score: 10 / 10
+------------------------------------------------------------
+TOTAL 100.0 / 100.0
+------------------------------------------------------------
+

@@ -1,0 +1,20 @@
+1. i : int
+   arr : Ref(int->int)
+   Color = Green + Red + Brown + Yellow
+   Leaf = Color * int
+   leaf : Ref(Leaf)
+   MapleTree = float * Ref(int->Leaf)
+
+2. See Prob2.java
+
+3. FlytingToaster is strongly typed (more so than Java) because every variable has a type, and there is no implicit coercion.
+
+4. (a) Dynamically typed and statically typed.
+
+   (b) Dynamically typed languages are able to assign a value of type A to a
+       variable, and then later assign a value of type B to that variable.
+       Statically typed languages are not able to do things like that.
+
+   (c) Foozle is a dynamically typed language.
+
+   (d) Banana is a statically typed language.

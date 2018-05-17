@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Lab14 feedback for Andre Amirsaleh (aa026)
+------------------------------------------------------------
+prelab: setup pin: ls.out, pwd.out and wc.out added to git repo [25/3 pts each]
+	Score: 25 / 25
+Exercise 2: Naive Cache Analysis: 10 points each:
+
+  * (2.1) What do you observe when the block size is increased from 8 to 64? What principle of cache operation is responsible for this effect?
+  * (2.2) What do you observe when you double the size of the cache (from 8K to 16K) while keeping the block size at 8? Explain these results.
+  * (2.3) What is the performance of a caches with size 32K, 64K, 128K, 256K, and 512K using a block size of 32? Look at results other than total demand miss rate and comment on the changes.
+  * (2.4) What is the effect of setting 2-way and 4-way set associativity for a unified 8K cache with a block size of 8? Explain your findings.
+  * (2.5) What is the effect of setting 2-way and 4-way set associativity for a unified 128K cache with a block size of 8? Compare to previous results and explain your findings.
+	Score: 48 / 50
+	Comment: -2 points: needs more details in 2.1 and 2.2, for instance, capacity misses.
+
+Exercise 3: Blocked Cache Analysis: Documented evidence for various cache size, block size, and associativity for
+the blocked cache design and made a reasonable argument for a solution.
+	Score: 25 / 25
+------------------------------------------------------------
+TOTAL 98.0 / 100.0
+------------------------------------------------------------
+

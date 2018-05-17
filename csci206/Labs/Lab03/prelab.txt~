@@ -1,0 +1,63 @@
+Exercise 1:
+1. Using the -g option (example: cc -g sourcefile.c)
+2. break 50
+3. pintf "count = %d", count
+4. set count = 42
+
+Exercise 2:
+$zero (register 0) always contains the constant value zero. This register is useful to extend the capabilities of MIPS instructions that require three arguments. For example, MIPS does not have a move (or copy) command. If we wanted to copy the contents of $s0 to $t0, we could use $zero with the add instruction like this: add $t0, $s0, $zero to achieve the same result as a copy.
+
+$at, $k0, and $k1 (registers 1, 26, and 27 respectively) are reserved for the assembler and operating system and should not be used by user programs or compilers.
+
+$v0-$v1 (registers 2-3) are used used to return values from functions. For example, if a simple "Hello, World" function returns 0, one of these registers will be assigned the value 0.
+
+$a0-$a3 (registers 4-7) are used to pass the first four arguments to routines (remaining arguments are passed on the stack). So, these registers are assigned the values of method arguments.
+
+$t0-$t9 (registers 8-15, 24, and 25 respectively) are caller-saved registers that are used to hold temporary quantities that need not be preserved across calls. These are like the temporary place-holder variables defined in methods except they are more useful because certain expressions (like a+b+c) cannot be written without one of these registers (in this case, because the add function can only add two registers).
+
+$s0-$s7 (reigisters 16-23) are callee-saved registers that hold long-lived values that should be preserved across calls. These values may be used as class variables and constants.
+
+$gp (register 28) is a global pointer that can be used by any method.
+
+$sp (register 29) is the stack pointer, which points to the last location on the stack. If I remember correctly, this register is used specifically for navigating/setting up stacks/loops.
+
+$fp (register 30) is the frame pointer. This register is also used specifically for navigating/setting up stacks/loops.
+
+$ra (register 31) is the return address from a procedure call. It is written by the jal instruction.
+
+Exercise 3:
+1. add $s1, $s2, $s3
+(a) Adds the values contained in the two source registers; stores the result into the destination register. Effectively: $s1 = $s2 + $s3.
+(b) Source Registers: $s2, $s3
+(c) Destination Register: $s1
+
+2. addi $s1, $s3, 2
+(a) Adds the value contained in the source register to the constant and stores that value in register $s1. Effectively: $s1 = $s3 + 2.
+(b) Arguments: source register $s3 and constant value 2
+(c) Destination register: $s1
+
+3. lw $t6, 4($s0)
+(a) Loads the word from the memory address of the source register ($s0) + the constant (4) and stores that word in $t6. Effectively: $t6 = MEM[$s0+4].
+(b) Arguments: source register $s0 and constant value 4
+(c) Destination Register: $t6
+
+4. add $t3, $s1, $s2
+(a) Adds the values contained in the two source registers and stores the result into the destination register. Effectively: $t3 = $s1 + $s2.
+(b) Source Registers: $s1 and $s2
+(c) Destination Register: $t3
+
+5. sub $v0, $t1, $s2
+(a) Subtracts (from left to right) the values contained in the two source registers and stores the result into the destination register. Effectively: $v0 = $t1 - $s2.
+(b) Source Registers: $t1 and $s2
+(c) Destination Register: $v0
+
+Exercise 4
+1. 59 (base 10) to 8-bit binary: 59 = 32 + 16 + 8 + 2 + 1 = 2^5 + 2^4 + 2^3 + 2^1 + 2^0 = 111011
+
+2. 10111011 (base 2) to 8-bit hexadecimal: 10111011 = 2^7 + 2^5 + 2^4 + 2^3 + 2^1 + 2^0 = 128 + 32 + 16 + 8 + 2 + 1 = 187 (base 10) = 11 * 16^1 + 11 * 16^0 = BB
+
+3. 129 (base 10) to 8-bit hexadecimal: 129 (base 10) = 8 * 16^1 + 1 * 16^0 = 81 (base 16)
+
+4. 0xFEEDBEEF (base 16) to binary (use as many bits as required): 15 * 16^7 + 14 * 16^6 + 14 * 16^5 + 13 * 16^4 + 11 * 16^3 + 14 * 16^2 + 14 * 16^1 + 15 * 16^0 = 4276993775 (base 10) = 11111110111011011011111011101111 (base 2)
+
+5. 0743 (base 8) to binary (use as many bits as required): 0743 (base 8) = 7 * 8^2 + 4 * 8^1 + 3 * 8^0 = 483 (base 10) = 2^8 + 2^7 + 2^6 + 2^5 + 2^1 + 2^0 = 111100011 (base 2)

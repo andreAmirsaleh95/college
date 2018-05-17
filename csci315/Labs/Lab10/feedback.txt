@@ -1,0 +1,17 @@
+|====================|
+| Lab 10 - 70 points |
+|====================|
+
+Problem 1 - 20 Points
+
+Problem 2 - 20 Points
+
+Problem 3 - 8 Points
+
+Problem 4 - 22 Points
+
+
+-20: P2 does not compile
+-22: P4 not submitted
+
+Total: 28/70

@@ -1,0 +1,70 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Spring 2016
+* Instructor: Brian King
+* Section: 1:00-2:00 MWF
+*
+* Name: Andre Amirsaleh
+* Date: 1/28/2016
+*
+* Lab / Assignment: lab03
+*
+* Description:
+*
+* *****************************************/
+
+#### Q1 #####
+$ git log --oneline --decorate
+49f1422 (HEAD, master) more work
+1aee211 Init commit
+
+#### Q2 #####
+49f1422 (HEAD, myFeature, master) more work
+1aee211 Init commit
+
+#### Q3 #####
+42b9e9f (HEAD, myFeature) test2
+1d1f615 test1
+49f1422 (master) more work
+1aee211 Init commit
+
+#### Q4 #####
+diff --git a/Main.java b/Main.java
+index 5e727e2..40481d0 100644
+--- a/Main.java
++++ b/Main.java
+@@ -2,5 +2,7 @@ public class Main {
+        public static void main( String[] args ) {
+                System.out.println( "Init commit" );
+                System.out.println( "more work" );
++               System.out.println( "test1" );
++               System.out.println( "test2" );
+        }
+ }
+
+#### Q5 #####
+42b9e9f (myFeature) test2
+1d1f615 test1
+49f1422 (HEAD, master) more work
+1aee211 Init commit
+
+#### Q5 #####
+42b9e9f (HEAD, myFeature, master) test2
+1d1f615 test1
+49f1422 more work
+1aee211 Init commit
+
+
+(1.1) 7
+(1.2) 12
+(1.3) HelloCSCI205
+(1.4) llo
+(1.5) true
+(1.4) 0
+(1.7) 6
+(1.8) HELLO
+(1.9) CSCI50
+(1.10) (a) is more efficient because (b) creates an extra object
+
+
+

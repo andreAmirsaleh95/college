@@ -1,0 +1,72 @@
+PROBLEM 1. 
+?- ['digraph.pl']
+|    .
+true.
+
+?- edge(a,b).
+true.
+
+?- edge(a,c).
+false.
+
+?- path2(a, c).
+true.
+
+?- path3(a, d).
+false.
+
+?- path3(a,b).
+false.
+
+?- path3(a,c).
+true.
+
+PROBLEM 2.
+?- path(a,e).
+true ;
+true ;
+false.
+
+?- path(a,a).
+true ;
+false.
+
+?- path(a, b).
+true ;
+true ;
+false.
+
+PROBLEM 3.
+?- father(father1, son1).
+true ;
+false.
+
+?- father(father1, mother1).
+false.
+
+?- mother(mother1, daughter1).
+true.
+
+?- son(son1, father1).
+true ;
+false.
+
+?- daughter(daughter1, mother1).
+true.
+
+?- grandparent(gPa, son1).
+true ;
+false.
+
+?- sibling(son1, daughter1).
+true ;
+true.
+
+PROBLEM 4.
+?- ['mem.pl']
+|    .
+true.
+
+?- mem(a, [f,e,d,c,b,a])
+|    .
+true .

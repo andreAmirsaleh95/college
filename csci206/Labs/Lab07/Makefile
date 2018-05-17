@@ -1,0 +1,15 @@
+CC=gcc
+CFLAGS=-Wall
+all: primes2 counte matrix-sum time
+
+primes2: primes2.c is_prime.s
+	$(CC) $(CFLAGS) primes2.c is_prime.s -o primes2
+
+counte: counte.c counte.s
+	$(CC) $(CFLAGS) counte.c counte.s -o counte
+
+matrix-sum: matrix-sum.c matrix-sum.s
+	$(CC) $(CFLAGS) matrix-sum.c matrix-sum.s -o matrix-sum
+
+time: time.c time.s
+	$(CC) $(CFLAGS) time.c time.s -o time
